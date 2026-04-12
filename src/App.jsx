@@ -58,9 +58,9 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <Navbar />
       <div className="scroll-wrapper">
         <div className="sticky-hero-container" onMouseMove={handleMouseMove}>
+          <Navbar />
           <div
             className="glow-scroll-controller"
             style={{ opacity: 1 - scrollProgress * 1.5 }}
