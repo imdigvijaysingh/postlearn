@@ -7,7 +7,7 @@
   pointer-events: none;
   opacity: 0;
   transform: translate(-50%, 200px);
-  animation: phoneRise 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: phoneRise 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   animation-delay: 0.8s;
 }
 
