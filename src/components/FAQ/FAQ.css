@@ -1,0 +1,175 @@
+.faq-section {
+  width: 100%;
+  background-color: #03221b;
+  display: flex;
+  justify-content: center;
+  padding: 120px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.faq-container {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* Right column is slightly wider */
+  gap: 80px;
+  align-items: flex-start; /* Keeps the left header at the top */
+}
+
+/* --- Left Column: Header --- */
+.faq-left {
+  position: sticky;
+  top: 120px; /* Sticks to the screen if the FAQ list gets very long */
+}
+
+.faq-left h2 {
+  font-size: 3.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.highlight-orange {
+  color: #f98b11;
+}
+
+.faq-left p {
+  color: #a1a1aa;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* --- Right Column: Accordion --- */
+.faq-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.faq-item:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.faq-question-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.faq-question-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.faq-icon-wrapper {
+  background-color: #2a2a2d; /* Subtle dark gray box */
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.faq-question-text {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.faq-toggle-icon {
+  color: #ffffff;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Rotates the '+' into an 'x' when opened */
+.faq-toggle-icon.rotated {
+  transform: rotate(45deg);
+  color: white; /* Turns orange when active */
+}
+
+/* --- Answer Content --- */
+.faq-answer-wrapper {
+  transition:
+    max-height 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.faq-answer-content {
+  padding: 0 0 30px 64px; /* Indented to align with the question text, bypassing the icon */
+}
+
+.faq-answer-content p {
+  color: #a1a1aa;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.text-gradient {
+  /* Carefully calibrated color stops to match your image */
+  background: linear-gradient(to right, #ffffff 5%, #ffdeb3 45%, #ffaa2b 95%);
+
+  /* Clips the gradient to the exact shape of the letters */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Makes the actual text invisible so the background gradient shows through */
+  color: transparent;
+
+  /* Ensures the gradient scales correctly across just this word */
+  display: inline-block;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  .faq-container {
+    grid-template-columns: 1fr; /* Stacks vertically on smaller screens */
+    gap: 50px;
+  }
+
+  .faq-left {
+    position: relative;
+    top: 0;
+    text-align: center;
+  }
+
+  .faq-left p {
+    margin: 0 auto;
+  }
+
+  .faq-question-text {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .faq-left h2 {
+    font-size: 2.8rem;
+  }
+
+  .faq-question-row {
+    padding: 24px 0;
+  }
+
+  .faq-answer-content {
+    padding: 0 0 24px 0; /* Remove indent on mobile for more space */
+  }
+}

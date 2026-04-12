@@ -1,0 +1,155 @@
+.tools2-section {
+  width: 100%;
+  height: 100vh; /* Matches the first section */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+
+  /* Must be solid dark to completely hide the section underneath it */
+  background-color: transparent;
+
+  /* The Sticky Magic */
+  position: sticky;
+  top: 0;
+  z-index: 20; /* Higher z-index ensures it slides OVER the first section */
+  overflow: hidden;
+}
+
+/* The inner vibrant orange rounded container */
+.tools2-container {
+  width: 100%;
+  max-width: 1300px;
+  background-color: #ff8c00; /* Vibrant Orange background */
+  border-radius: 40px;
+  padding: 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Header --- */
+.tools2-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.tools2-header h2 {
+  font-size: 3rem;
+  color: #1a1a1c;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.tools2-header p {
+  color: #333333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* --- Grid Layout --- */
+.tools2-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px 1fr;
+  gap: 50px;
+  width: 100%;
+  align-items: center;
+}
+
+.tools2-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* --- Card Styles --- */
+.tools2-card {
+  background-color: #ffa133;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 35px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.tools2-card:hover,
+.active-tools2-card {
+  background-color: #ffab4d;
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tools2-icon {
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  border: 1px solid rgba(26, 26, 28, 0.3);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: #1a1a1c;
+}
+
+.tools2-card h3 {
+  color: #1a1a1c;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.tools2-card p {
+  color: #333333;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* --- Center Mockup Layout --- */
+.tools2-center-mockup {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+}
+
+.tools2-mockup-frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -20px;
+}
+
+.tools2-mockup-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.4));
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1100px) {
+  .tools2-section {
+    margin-top: -800px;
+  }
+  .tools2-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .tools2-center-mockup {
+    grid-row: 1;
+  }
+  .tools2-container {
+    padding: 60px 30px;
+    border-radius: 30px;
+  }
+  .tools2-mockup-frame {
+    margin-bottom: 0;
+    max-width: 320px;
+  }
+}

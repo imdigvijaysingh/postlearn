@@ -1,0 +1,313 @@
+.footer-section {
+  width: 100%;
+  background-color: rgb(0, 43, 32);
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px 40px;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separation from content above */
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  /* gap: 80px; */
+}
+
+/* --- TOP ROW --- */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo-img {
+  height: 24px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-nav a {
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: #ffffff;
+}
+
+/* Newsletter & Socials */
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-right h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.newsletter-social-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form {
+  display: flex;
+  background-color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 4px;
+  width: 320px;
+}
+
+.newsletter-form input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 10px 16px;
+  flex-grow: 1;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.newsletter-form input::placeholder {
+  color: #666666;
+  font-weight: 500;
+}
+
+.newsletter-form button {
+  background-color: #002b20;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.newsletter-form button:hover {
+  opacity: 0.9;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-links a {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: #008e6a;
+}
+
+/* --- MIDDLE ROW: INFINITE SCROLL MARQUEE --- */
+.footer-marquee-wrapper {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+
+  /* This creates the fade-to-black effect on the left and right edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  /* The animation moves the track left by 100% of its own width */
+  animation: scroll-marquee 50s linear infinite;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Space between the text and the star */
+  padding-right: 40px; /* Space before the next item starts */
+}
+
+.marquee-text {
+  color: #ffffff;
+  font-size: 10rem; /* Massive text */
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.text-gradient {
+  /* Carefully calibrated color stops to match your image */
+  background: linear-gradient(to right, #ffffff 5%, #037b5d 45%, #06513e 95%);
+
+  /* Clips the gradient to the exact shape of the letters */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Makes the actual text invisible so the background gradient shows through */
+  color: transparent;
+
+  /* Ensures the gradient scales correctly across just this word */
+  display: inline-block;
+}
+
+.marquee-star {
+  width: 60px;
+  height: 60px;
+  color: #ffffff;
+}
+
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* --- BOTTOM ROW --- */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-legal-links a {
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #ffffff;
+}
+
+.footer-copyright {
+  color: #a1a1aa;
+  font-size: 0.9rem;
+}
+
+.footer-copyright a.underline {
+  color: #a1a1aa;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
+}
+
+.footer-copyright a.underline:hover {
+  color: #ffffff;
+  text-decoration-color: #ffffff;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .footer-marquee-wrapper {
+    /* Slightly less fade on smaller screens */
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+  }
+  .marquee-text {
+    font-size: 6rem;
+  }
+  .marquee-star {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .newsletter-form {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .marquee-text {
+    font-size: 4rem;
+  }
+  .marquee-star {
+    width: 30px;
+    height: 30px;
+  }
+  .marquee-item {
+    gap: 20px;
+    padding-right: 20px;
+  }
+}

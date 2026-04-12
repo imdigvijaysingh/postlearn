@@ -1,0 +1,232 @@
+.steps-scroller-section {
+  width: 100%;
+  background-color: rgb(0, 43, 32);
+  position: relative;
+  z-index: 10;
+  padding-bottom: 250px;
+}
+
+.steps-scroller-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+}
+
+/* --- Left Side: Sticky Phone & Glow --- */
+.sticky-phone-col {
+  width: 50%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.steps-gradient {
+  /* Carefully calibrated color stops to match your image */
+  background: linear-gradient(
+    to right,
+    #ffffff 5%,
+    #0db6a8 45%,
+    rgba(21, 182, 142, 0.5) 95%
+  );
+
+  /* Clips the gradient to the exact shape of the letters */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Makes the actual text invisible so the background gradient shows through */
+  color: transparent;
+
+  /* Ensures the gradient scales correctly across just this word */
+  display: inline-block;
+}
+.steps-phone-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 450px;
+  height: 550px;
+
+  /* Switched to a slightly more solid base so the morphing shape is visible through the blur */
+  filter: blur(60px);
+  z-index: 0;
+
+  /* Runs two animations at the same time at different speeds for natural chaos */
+  animation:
+    organic-morph 2s ease-in-out infinite alternate,
+    breathing-spin 4s linear infinite;
+}
+
+/* 1. The Shape Shifter: Smoothly transitions between irregular blob shapes */
+@keyframes organic-morph {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    background: rgba(255, 255, 255, 1);
+  }
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    background: rgb(0, 165, 36);
+  }
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    background: rgba(255, 255, 255, 1);
+  }
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+    background: rgb(0, 165, 36);
+  }
+  100% {
+    border-radius: 73% 27% 26% 74% / 73% 36% 64% 27%;
+    background: rgba(255, 255, 255, 1);
+  }
+}
+
+/* 2. The Lungs & Movement: Scales up and down while rotating smoothly */
+@keyframes breathing-spin {
+  0% {
+    /* Must keep the -50% translate to stay centered */
+    transform: translate(-50%, -50%) scale(1.5) rotate(0deg);
+  }
+  33% {
+    transform: translate(-50%, -50%) scale(1.7) rotate(120deg);
+  }
+  66% {
+    transform: translate(-50%, -50%) scale(1.5) rotate(240deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5) rotate(360deg);
+  }
+}
+
+.phone-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 270px;
+  aspect-ratio: 1 / 2;
+  z-index: 1;
+  transition: transform 0.1s linear;
+}
+
+/* --- The Magic 'Rise and Overlap' Styles --- */
+.steps-phone-mockup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(34, 255, 141, 0.1));
+
+  /* --- HIDDEN STATE (Pre-Enter) ---
+     Image is positioned off-screen to the bottom-left, tilted, and invisible. */
+  opacity: 0;
+  transform: translate(-100px, 100px) rotate(15deg) scale(0.8);
+
+  /* Standard smooth transition for transform and opacity */
+  transition:
+    transform 0.6s ease-out,
+    opacity 0.6s ease-out;
+}
+
+/* --- VISIBLE STATE (Active/Overlap) --- 
+   Applies to the active image AND images below it.
+   Image returns to its natural position. */
+.steps-phone-mockup.image-visible {
+  opacity: 1;
+  transform: translate(0, 0) rotate(0deg) scale(1);
+}
+
+/* --- Right Side: Scrolling Text Steps --- */
+.scrolling-steps-col {
+  width: 50%;
+  padding-top: 40vh;
+  padding-bottom: 10vh;
+}
+
+.step-scroll-block {
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  opacity: 0.3; /* Faded when not active */
+  transition: opacity 0.4s ease;
+}
+
+.step-scroll-block:last-child {
+  min-height: 50vh;
+}
+
+/* Brightens when step hits center */
+.step-active {
+  opacity: 1;
+}
+
+.steps-icon-wrapper {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(65, 239, 237, 0.5);
+  border-radius: 16px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #013833;
+  flex-shrink: 0;
+}
+
+.steps-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.steps-content h2 {
+  font-size: 3.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.highlight-orange {
+  color: #013833;
+}
+
+.steps-content p {
+  color: #a1a1aa;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 450px;
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 992px) {
+  .steps-scroller-container {
+    flex-direction: column;
+  }
+
+  .sticky-phone-col {
+    width: 100%;
+    height: 60vh;
+    position: sticky;
+    top: 80px; /* Mobile navbar offset */
+  }
+
+  .scrolling-steps-col {
+    width: 100%;
+    padding: 0 20px 10vh;
+  }
+
+  .step-scroll-block {
+    min-height: 60vh;
+  }
+  .step-scroll-block:last-child {
+    min-height: auto;
+  }
+}

@@ -1,0 +1,157 @@
+/* Creates the long track you scroll down */
+.who-scroll-wrapper {
+  width: 100%;
+  height: 250vh; /* 2.5x the height of the screen to give plenty of scrolling room */
+  background-color: #1a1a1c;
+  position: relative;
+  z-index: 10;
+}
+
+/* Freezes on screen while you scroll down the wrapper */
+.who-sticky-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh; /* Locks to exact screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.who-inner-content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Header --- */
+.who-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.who-header h2 {
+  font-size: 3.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.highlight-orange {
+  color: #f98b11;
+}
+
+.who-header p {
+  color: #a1a1aa;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* --- Grid Layouts --- */
+.who-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards in a row */
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.who-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 wide cards */
+  gap: 24px;
+  width: 100%;
+}
+
+/* --- Scroll Animation States --- */
+.target-card {
+  background-color: #242426;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+
+  /* HIDDEN STATE: Invisible and pushed down 80px */
+  opacity: 0;
+  transform: translateY(80px);
+
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* VISIBLE STATE: Triggered by React scroll progress */
+.target-card.card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover effect */
+.target-card:hover {
+  border-color: rgba(249, 139, 17, 0.3);
+  background-color: #2a2a2d;
+}
+
+/* --- Card Content Styling --- */
+.target-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.target-card h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.target-card p {
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .who-grid-4 {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 grid on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  /* On mobile, scroll-driven layouts can feel buggy, so we let it flow naturally */
+  .who-scroll-wrapper {
+    height: auto;
+    padding: 80px 0;
+  }
+  .who-sticky-container {
+    position: relative;
+    height: auto;
+  }
+  .who-grid-4,
+  .who-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .who-header h2 {
+    font-size: 2.5rem;
+  }
+  .target-card {
+    opacity: 1; /* Always visible on mobile to prevent layout breaking */
+    transform: translateY(0);
+  }
+}

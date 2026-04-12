@@ -1,0 +1,163 @@
+.tools3-section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+
+  /* CRITICAL: Must be solid dark to hide the orange section underneath it */
+  background-color: transparent;
+
+  /* The Sticky Magic */
+  position: sticky;
+  top: 0;
+  z-index: 30; /* 30 ensures it slides OVER ToolsSection2 (which was 20) */
+  overflow: hidden;
+}
+
+/* The inner crisp white container */
+.tools3-container {
+  width: 100%;
+  max-width: 1300px;
+  background-color: #ffffff;
+  border-radius: 40px;
+  padding: 30px 20px 0; /* Increased padding for better proportions */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Header --- */
+.tools3-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.tools3-header h2 {
+  font-size: 3rem;
+  color: #111111; /* Dark text for white background */
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.tools3-header p {
+  color: #444444; /* Medium gray */
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* --- Grid Layout --- */
+.tools3-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px 1fr;
+  gap: 50px;
+  width: 100%;
+  align-items: center;
+}
+
+.tools3-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* --- Card Styles --- */
+.tools3-card {
+  background-color: #ffffff;
+  border: 1px solid #eaeaea; /* Subtle light gray border */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04); /* Very soft shadow */
+  border-radius: 24px;
+  padding: 35px 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tools3-card:hover,
+.active-tools3-card {
+  border-color: #f98b11; /* Orange border on active/hover */
+  box-shadow: 0 12px 32px rgba(249, 139, 17, 0.1); /* Soft orange glow shadow */
+  transform: translateY(-5px);
+}
+
+.tools3-icon {
+  width: 44px;
+  height: 44px;
+  background-color: #ffffff;
+  border: 1px solid rgba(249, 139, 17, 0.4); /* Light orange border */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: #f98b11; /* Orange icon stroke */
+}
+
+.tools3-card h3 {
+  color: #111111;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.tools3-card p {
+  color: #555555; /* Slightly lighter text for readability */
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.highlight-orange {
+  color: #f98b11;
+  font-weight: 600;
+}
+
+/* --- Center Mockup Layout --- */
+.tools3-center-mockup {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+}
+
+.tools3-mockup-frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -20px;
+}
+
+.tools3-mockup-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(
+    0 0 40px rgba(0, 0, 0, 0.2)
+  ); /* Softer shadow on white background */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1100px) {
+  .tools3-section {
+    height: auto;
+    position: relative;
+    padding: 100px 20px;
+  }
+  .tools3-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .tools3-center-mockup {
+    grid-row: 1;
+  }
+  .tools3-container {
+    padding: 60px 30px;
+    border-radius: 30px;
+  }
+  .tools3-mockup-frame {
+    margin-bottom: 0;
+    max-width: 320px;
+  }
+}

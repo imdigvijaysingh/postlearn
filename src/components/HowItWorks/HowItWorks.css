@@ -1,0 +1,41 @@
+.how-it-works-section {
+  width: 100%;
+  min-height: 10vh; /* Gives you room to scroll to see the effect */
+  background: rgb(0, 43, 32);
+  display: flex;
+  justify-content: center;
+  padding: 150px 20px 300px;
+}
+
+.how-it-works-container {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.scroll-fill-text {
+  font-size: 11rem; /* Massive text to match your design */
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  margin: 0;
+
+  /* The Magic Fill Trick */
+  background: linear-gradient(
+    to right,
+    #ffffff var(--fill),
+    /* Solid white up to the fill percentage */ rgba(255, 255, 255, 0.25)
+      var(--fill) /* Faded white for the rest */
+  );
+
+  /* Clips the background gradient to the text shape */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* Hides the normal text color so the background shows */
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  .scroll-fill-text {
+    font-size: 4rem;
+  }
+}
