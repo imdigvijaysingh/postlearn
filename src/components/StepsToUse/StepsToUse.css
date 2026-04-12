@@ -165,8 +165,10 @@
 }
 
 .steps-icon-wrapper {
-  background-color: white;
-  box-shadow: 0 0 10px rgba(65, 239, 237, 0.5);
+  background-color: #e2e8f0;
+  box-shadow:
+    0 0 15px rgba(255, 255, 255, 0.4),
+    0 0 40px rgba(13, 182, 168, 0.4);
   border-radius: 16px;
   width: 64px;
   height: 64px;
@@ -180,14 +182,15 @@
 .steps-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
+  margin-top: 4px;
 }
 
 .steps-content h2 {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   color: #ffffff;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   margin: 0;
 }
@@ -197,12 +200,12 @@
 }
 
 .steps-content p {
-  color: #a1a1aa;
+  color: #aeb5b0;
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.6;
-  margin: 0;
-  max-width: 450px;
+  margin-left: 4px;
+  max-width: 400px;
 }
 
 /* --- Responsive Design (Mobile) --- */
