@@ -174,17 +174,13 @@
   display: flex;
   align-items: center;
   gap: 40px; /* Space between the text and the star */
-  padding-right: 40px; /* Space before the next item starts */
+  padding-right: 0 40px; /* Space before the next item starts */
 }
-
-.marquee-text {
-  color: #ffffff;
-  font-size: 10rem; /* Massive text */
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  white-space: nowrap;
+.marquee-img {
+  height: 150px;
+  width: auto;
+  object-fit: contain;
 }
-
 .text-gradient {
   /* Carefully calibrated color stops to match your image */
   background: linear-gradient(to right, #ffffff 5%, #037b5d 45%, #06513e 95%);

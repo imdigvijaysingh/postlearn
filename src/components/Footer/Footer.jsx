@@ -1,14 +1,13 @@
 import React from "react";
 import "./Footer.css";
 import footerLogoImg from "../../assets/logo-nav.png";
+import marqueeLogo from "../../assets/logo-nav.png";
 
 const Footer = () => {
   // We create an array of 10 items to ensure the marquee is wide enough to loop seamlessly
   const marqueeItems = [...Array(10)].map((_, i) => (
     <div key={i} className="marquee-item">
-      <span className="marquee-text">
-        POSTLE<span className="text-gradient">ARN*</span>
-      </span>
+      <img src={marqueeLogo} alt="PostLearn Logo" className="marquee-img" />
     </div>
   ));
 
