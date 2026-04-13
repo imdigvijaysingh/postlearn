@@ -1,6 +1,96 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./ToolsSection3.css";
-import mockupImg from "../../assets/tools-img-phone-3.webp"; // Update with your actual path
+import mockupImg from "../../assets/tools-img-phone-3.png"; // Update with your actual path
+
+const toolsData = [
+  {
+    id: 1,
+    title: "Earn Badges",
+    description:
+      "Unlock achievement badges as you complete milestones and learning goals.",
+    icon: (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+    ),
+  },
+  {
+    id: 2,
+    title: "Daily Challenges",
+    description:
+      "Take on exciting daily tasks to maintain consistency and sharpen skills.",
+    icon: (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+      </svg>
+    ),
+  },
+  {
+    id: 3,
+    title: "Reward Points",
+    description:
+      "Collect points for every activity and redeem exciting learning benefits.",
+    icon: (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="8"></circle>
+        <line x1="12" y1="8" x2="12" y2="16"></line>
+        <line x1="8" y1="12" x2="16" y2="12"></line>
+      </svg>
+    ),
+  },
+  {
+    id: 4,
+    title: "Celebrate Wins",
+    description:
+      "Track milestones and celebrate every success throughout your journey.",
+    icon: (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+        <path d="M4 22h16"></path>
+        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+      </svg>
+    ),
+  },
+];
 
 const ToolsSection3 = () => {
   const sectionRef = useRef(null);
@@ -31,121 +121,45 @@ const ToolsSection3 = () => {
     transformOrigin: "center center",
   };
 
+  const renderCard = (card, index) => (
+    <div
+      className={`tools3-card ${index === 0 ? "active-tools3-card" : ""}`}
+      key={card.id}
+    >
+      <div className="tools3-icon">{card.icon}</div>
+      <h3>{card.title}</h3>
+      <p>{card.description}</p>
+    </div>
+  );
+
   return (
     <section className="tools3-section" ref={sectionRef}>
       <div className="tools3-container" style={containerStyle}>
-        {/* Header Section */}
         <div className="tools3-header">
-          <h2>AI Email Assistant</h2>
+          <h2>Stay Motivated. Get Rewarded.</h2>
           <p>
-            Write Smarter, Faster, and More Effectively with AI-Powered
-            <br />
-            Tools Designed to Elevate Every Word You Create.
+            Turn learning into an exciting journey with achievements, rewards,
+            and fun challenges that keep you inspired every day.
           </p>
         </div>
 
-        {/* 3-Column Grid Layout */}
         <div className="tools3-layout">
-          {/* Left Column */}
           <div className="tools3-column">
-            <div className="tools3-card active-tools3-card">
-              <div className="tools3-icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-              </div>
-              <h3>Email Writer</h3>
-              <p>
-                Instantly fix grammar and style issues <br />
-                <span className="highlight-orange">(Most Popular)</span>
-              </p>
-            </div>
-
-            <div className="tools3-card">
-              <div className="tools3-icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                  <polyline points="10 9 9 9 8 9"></polyline>
-                </svg>
-              </div>
-              <h3>Paraphraser</h3>
-              <p>Upgrade any content for impact and engagement</p>
-            </div>
+            {toolsData.slice(0, 2).map((card, i) => renderCard(card, i))}
           </div>
 
-          {/* Center Column */}
           <div className="tools3-center-mockup">
             <div className="tools3-mockup-frame">
               <img
                 src={mockupImg}
-                alt="Email Assistant Interface"
+                alt="Rewards Interface"
                 className="tools3-mockup-image"
               />
             </div>
           </div>
 
-          {/* Right Column */}
           <div className="tools3-column">
-            <div className="tools3-card">
-              <div className="tools3-icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M12 20h9"></path>
-                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                </svg>
-              </div>
-              <h3>Cold Email Generator</h3>
-              <p>Rewrite text in seconds with better clarity and tone</p>
-            </div>
-
-            <div className="tools3-card">
-              <div className="tools3-icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                </svg>
-              </div>
-              <h3>Bulk Email Generator</h3>
-              <p>Rewrite text in seconds with better clarity and tone</p>
-            </div>
+            {toolsData.slice(2, 4).map((card, i) => renderCard(card, i + 2))}
           </div>
         </div>
       </div>

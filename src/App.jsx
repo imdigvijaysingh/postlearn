@@ -84,11 +84,11 @@ const App = () => {
 
       <StepsToUse />
 
-      {/* <div className="tools-stack-wrapper">
+      <div className="tools-stack-wrapper">
         <ToolsSection />
         <ToolsSection2 />
         <ToolsSection3 />
-      </div> */}
+      </div>
 
       {/* <WhoIsItFor /> */}
       {/* <TestimonialsSection /> */}
